@@ -1,0 +1,384 @@
+```{r}
+library(jsonlite)
+library(tidyverse)
+```
+
+
+```{r}
+demo_table <- read.csv(file='demo.csv',check.names=F,stringsAsFactors = F)
+```
+
+```{r}
+demo_table2 <- fromJSON(txt='demo.json')
+```
+
+```{r}
+demo_table[3,'Year']
+```
+
+
+```{r}
+demo_table[3,3]
+```
+
+
+```{r}
+demo_table$"Vehicle_Class"[2]
+```
+```{r}
+filter_table <- demo_table2[demo_table2$price > 10000,]
+```
+```{r}
+filter_table2 <- subset(demo_table2, price > 10000 & drive == "4wd" & "clean" %in% title_status)
+```
+
+
+```{r}
+sample(c("cow", 'deer','pig','chicken',"duck", "sheep", "dog"), 4)
+```
+
+```{r}
+num_rows <- 1:nrow(demo_table)
+sample_rows <- sample(num_rows,3)
+demo_table[sample_rows,]
+```
+
+
+```{r}
+demo_table[sample(1:nrow(demo_table), 3),]
+```
+```{r}
+demo_table <- demo_table %>% mutate(Mileage_per_year = Total_Miles/(2021-Year), IsActive=TRUE)
+```
+```{r}
+summarize_demo <- demo_table2 %>% group_by(condition) %>% summarize(Mean_Mileage = mean(odometer), .groups = 'keep')
+```
+```{r}
+summarize_demo <- demo_table2 %>% group_by(condition) %>% summarize(Mean_Mileage=mean(odometer),Maximum_Price=max(price),Num_Vehicles=n(), .groups = 'keep')
+```
+```{r}
+demo_table3 <- read.csv('demo2.csv', check.names=F, stringsAsFactors=F)
+```
+
+```{r}
+long_table <- gather(demo_table3, key="Metric",value="Score", buying_price:popularity)
+```
+
+```{r}
+wide_table <- long_table %>% spread(key="Metric", value="Score")
+```
+
+```{r}
+all.equal(demo_table3, wide_table)
+```
+```{r}
+table <-demo_table3[,order(colnames(wide_table))]
+```
+
+```{r}
+head(mpg)
+```
+```{r}
+plt <- ggplot(mpg, aes(x=class))
+```
+```{r}
+plt + geom_bar()
+```
+
+
+```{r}
+mpg_summary <- mpg %>% group_by(manufacturer) %>% summarize(Vehicle_Count=n(), .groups = 'keep')
+```
+```{r}
+plt <- ggplot(mpg_summary, aes(x=manufacturer, y=Vehicle_Count))
+```
+
+```{r}
+plt + geom_col() + xlab("Manufacturing Company") + ylab("Number of Vehicles") +
+  theme(axis.text.x=element_text(angle=45,hjust=1))
+```
+```{r}
+mpg_summary <- subset(mpg, manufacturer=='toyota') %>% group_by(cyl) %>% summarize(Mean_Hwy=mean(hwy), .groups = 'keep')
+```
+
+```{r}
+plt <- ggplot(mpg_summary, aes(x=cyl, y=Mean_Hwy))
+```
+```{r}
+plt + geom_line()
+```
+```{r}
+plt + geom_line() + scale_x_discrete(limits=c(4,6,8)) + scale_y_continuous(breaks = c(15:30)) # add line plot with labels
+```
+```{r}
+plt <- ggplot(mpg, aes(x=displ,y=cty))
+```
+
+
+```{r}
+plt + geom_point() + xlab("Engine Size (L)") + ylab("City Fuel-Efficiency")
+```
+```{r}
+plt <- ggplot(mpg, aes(x=displ, y=cty, color = class))
+```
+```{r}
+plt + geom_point() + labs(x="Engine Size (L)", y="City Fuel-Efficiency (MPG)", color="Vehicle Class", size='City Fuel-Efficiency')
+```
+```{r}
+plt <- ggplot(mpg,aes(x=displ,y=cty,color=class,shape=drv, size = cty))
+```
+
+
+```{r}
+plt + geom_point() + labs(x="Engine Size (L)", y="City Fuel-Efficiency (MPG)", color="Vehicle Class",shape="Type of Drive")
+```
+```{r}
+test <- mpg
+```
+```{r}
+plt <- ggplot(mpg,aes(y=hwy))
+```
+```{r}
+plt + geom_boxplot()
+```
+```{r}
+plt <- ggplot(mpg, aes(x=manufacturer, y=hwy))
+```
+```{r}
+plt + geom_boxplot() + theme(axis.text.x=element_text(angle=45, hjust=1))
+```
+```{r}
+mpg_summary <- mpg %>% group_by(class,year) %>% summarize(Mean_Hwy=mean(hwy), .groups = 'keep')
+```
+```{r}
+plt <- ggplot(mpg_summary, aes(x=class,y=factor(year),fill=Mean_Hwy))
+```
+```{r}
+plt + geom_tile() + labs(x="Vehicle Class",y="Vehicle Year",fill="Mean Highway (MPG)")
+```
+
+```{r}
+mpg_summary <- mpg %>% group_by(model,year) %>% summarize(Mean_Hwy=mean(hwy), .groups = 'keep')
+```
+```{r}
+plt <- ggplot(mpg_summary, aes(x=model,y=factor(year),fill=Mean_Hwy))
+```
+```{r}
+plt + geom_tile() + labs(x="Model",y="Vehicle Year",fill="Mean Highway (MPG)") + theme(axis.text.x = element_text(angle=90,hjust=1,vjust=.5))
+```
+```{r}
+plt <- ggplot(mpg,aes(x=manufacturer,y=hwy))
+```
+
+```{r}
+plt + geom_boxplot() + theme(axis.text.x=element_text(angle=45,hjust=1)) + geom_point()
+```
+```{r}
+mpg_summary <- mpg %>% group_by(class) %>% summarize(Mean_Engine=mean(displ), .groups = 'keep')
+```
+```{r}
+plt <- ggplot(mpg_summary, aes(x=class, y=Mean_Engine))
+```
+```{r}
+plt + geom_point(size=4) + labs(x="Vehicle Class" , y="Mean Engine Size")
+```
+
+```{r}
+mpg_summary <- mpg %>% group_by(class) %>% summarize(Mean_Engine=mean(displ),SD_Engine=sd(displ), .groups = 'keep')
+```
+```{r}
+plt <- ggplot(mpg_summary,aes(x=class,y=Mean_Engine))
+```
+```{r}
+plt + geom_point(size=4) + labs(x="Vehicle Class",y="Mean Engine Size") + geom_errorbar(aes(ymin=Mean_Engine - SD_Engine, ymax = Mean_Engine + SD_Engine))
+```
+```{r}
+mpg_long <- mpg %>% gather(key="MPG_Type",value="Rating",c(cty,hwy))
+```
+
+```{r}
+plt <- ggplot(mpg_long,aes(x=manufacturer,y=Rating,color=MPG_Type))
+```
+```{r}
+plt + geom_boxplot() + theme(axis.text.x = element_text(angle=45, hjust=1))
+```
+```{r}
+plt <- ggplot(mpg_long,aes(x=manufacturer,y=Rating,color=MPG_Type))
+```
+```{r}
+plt + geom_boxplot() + facet_wrap(vars(MPG_Type)) + theme(axis.text.x=element_text(angle=45,hjust=1), legend.position = "none")
+```
+```{r}
+ggplot(mtcars,aes(x=wt)) + geom_density()
+```
+
+```{r}
+cars_df <- mtcars
+```
+```{r}
+shapiro.test(mtcars$wt)
+```
+```{r}
+population_table <- read.csv('used_car_data.csv',check.names = F,stringsAsFactors = F)
+```
+```{r}
+plt <- ggplot(population_table,aes(x=log10(Miles_Driven)))
+```
+```{r}
+plt + geom_density()
+```
+```{r}
+sample_table <- population_table %>% sample_n(50)
+```
+```{r}
+plt <- ggplot(sample_table,aes(x=log10(Miles_Driven)))
+```
+```{r}
+plt + geom_density()
+```
+```{r}
+t.test(log10(sample_table$Miles_Driven),mu=mean(log10(population_table$Miles_Driven)))
+```
+
+
+```{r}
+sample_table <- population_table %>% sample_n(50)
+```
+```{r}
+sample_table2 <- population_table %>% sample_n(50)
+```
+```{r}
+t.test(log10(sample_table$Miles_Driven),log10(sample_table2$Miles_Driven))
+```
+
+```{r}
+mpg_data <- read.csv('mpg_modified.csv')
+```
+
+
+```{r}
+mpg_1999 <- mpg_data %>% filter(year==1999)
+```
+
+
+```{r}
+mpg_2008 <- mpg_data %>% filter(year==2008)
+```
+```{r}
+t.test(mpg_1999$hwy,mpg_2008$hwy,paired = T)
+```
+
+```{r}
+mtcars_filt <- mtcars[,c("hp","cyl")]
+```
+
+
+```{r}
+mtcars_filt$cyl <- factor(mtcars_filt$cyl)
+```
+
+
+```{r}
+summary(aov(hp ~ cyl,data=mtcars_filt))
+```
+
+```{r}
+head(mtcars)
+```
+
+```{r}
+plt <- ggplot(mtcars,aes(x=hp,y=qsec))
+```
+```{r}
+plt + geom_point()
+```
+```{r}
+cor(mtcars$hp,mtcars$qsec)
+```
+```{r}
+used_cars <- read.csv('used_car_data.csv',stringsAsFactors = F)
+```
+```{r}
+head(used_cars)
+```
+
+```{r}
+plt <- ggplot(used_cars,aes(x=Miles_Driven,y=Selling_Price))
+```
+```{r}
+plt + geom_point()
+```
+
+```{r}
+cor(used_cars$Miles_Driven,used_cars$Selling_Price)
+```
+
+```{r}
+used_matrix <- as.matrix(used_cars[,c("Selling_Price","Present_Price","Miles_Driven")])
+```
+
+```{r}
+cor(used_matrix)
+```
+
+```{r}
+lm(qsec ~ hp,mtcars)
+```
+
+```{r}
+summary(lm(qsec~hp,mtcars))
+```
+
+```{r}
+model <- lm(qsec ~ hp,mtcars)
+```
+
+
+```{r}
+yvals <- model$coefficients['hp']*mtcars$hp + model$coefficients['(Intercept)']
+```
+
+
+```{r}
+plt <- ggplot(mtcars,aes(x=hp,y=qsec))
+```
+
+
+```{r}
+plt + geom_point() + geom_line(aes(y=yvals), color = "red")
+```
+```{r}
+lm(qsec ~ mpg + disp + drat + wt + hp,data=mtcars)
+```
+
+
+```{r}
+summary(lm(qsec ~ mpg + disp + drat + wt + hp,data=mtcars))
+```
+
+
+```{r}
+table(mpg$class,mpg$year)
+```
+
+
+```{r}
+tbl <- table(mpg$class,mpg$year)
+```
+
+```{r}
+chisq.test(tbl)
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
+
+```{r}
+```
+
