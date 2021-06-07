@@ -52,3 +52,8 @@ In looking at the Total Summary Table (Figure 2.1), the design specifications of
 <img src='https://github.com/tc9993/MechaCar-Statistical-Analysis/blob/main/Resources/lot3_ttest.PNG?raw=true' alt='Lot 3 T-Test'><br>
 <b>Figure 3.4: </b>Lot 3 T-Test
 </p>
+<ul>
+<li>When reviewing all of the lots in one T-Test, the p-value comes out to .06, greater than the .05 threshold being used in this analysis.  This means that we fail to reject the null hypothesis and that the mean of all lots and the true mean are statistically similar.</li>
+<li>A T-Test for Lot 1 shows a p-value of 1 exactly.  This means that the means are identical and that we fail to reject the null hypothesis as there is no statistical difference in the means.</li>
+<li>T-Test for Lot 2 shows a p-value of .61.  This means, once again, that we fail to reject the null hypothesis as there is not a statistical difference in the means.</li>
+<li>T-Test for Lot 3 shows a p-value of .042.  This means that we reject the null hypothesis as .042 is less than our significance level of .05, making there is a statistical difference in the means.</li>
