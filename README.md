@@ -64,12 +64,15 @@ In looking at the Total Summary Table (Figure 2.1), the design specifications of
 <h3>Summary</h3>
 <ul>
 <li>What metric or metrics are you going to test?
+  <ul>
   <li>Cost</li>
   <li>MPG</li>
   <li>Safety Rating</li>
   <li>Auto/Manual Transmission</li>
   <li>Fuel Type (Electric, Gasoline, etc.)</li>
+  </ul>
 </li>
 <li>What is the null hypothesis or alternative hypothesis?</li>
 <li>What statistical test would you use to test the hypothesis? And why?</li>
 <li>What data is needed to run the statistical test?</li>
+</ul>
