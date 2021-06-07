@@ -76,8 +76,8 @@ In looking at the Total Summary Table (Figure 2.1), the design specifications of
 </li>
 <li>What is the null hypothesis or alternative hypothesis?</li>
   <ul>
-  <li>Null Hypothesis: Cost of MechaCar is reflective of ratings across metrics tested.</li>
-  <li>Alternate Hypothesis: Cost of Mecha car is not reflective of ratings across metrics tested.</li>
+  <li>Null Hypothesis: Cost of MechaCar is reflective of metric tested.</li>
+  <li>Alternate Hypothesis: Cost of Mecha car is not reflective of metric tested.</li>
   </ul>
 <li>What statistical test would you use to test the hypothesis? And why?</li>
   <ul><li>A multiple linear regression would be best for this type of evaluation.  Cost would be the dependent variable while the remaining metrics would serve as independent variables in the analysis.  The analysis test would be able to tell which metrics are the best indicators of price.</li></ul>
