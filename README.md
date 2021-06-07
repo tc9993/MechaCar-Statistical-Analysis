@@ -57,3 +57,4 @@ In looking at the Total Summary Table (Figure 2.1), the design specifications of
 <li>A T-Test for Lot 1 shows a p-value of 1 exactly.  This means that the means are identical and that we fail to reject the null hypothesis as there is no statistical difference in the means.</li>
 <li>T-Test for Lot 2 shows a p-value of .61.  This means, once again, that we fail to reject the null hypothesis as there is not a statistical difference in the means.</li>
 <li>T-Test for Lot 3 shows a p-value of .042.  This means that we reject the null hypothesis as .042 is less than our significance level of .05, making there is a statistical difference in the means.</li>
+</ul>
