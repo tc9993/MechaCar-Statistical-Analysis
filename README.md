@@ -62,5 +62,14 @@ In looking at the Total Summary Table (Figure 2.1), the design specifications of
 <h2>Study Design: MechaCar vs Competition</h2>
 
 <h3>Summary</h3>
-
-<p>
+<ul>
+<li>What metric or metrics are you going to test?
+  <li>Cost</li>
+  <li>MPG</li>
+  <li>Safety Rating</li>
+  <li>Auto/Manual Transmission</li>
+  <li>Fuel Type (Electric, Gasoline, etc.)</li>
+</li>
+<li>What is the null hypothesis or alternative hypothesis?</li>
+<li>What statistical test would you use to test the hypothesis? And why?</li>
+<li>What data is needed to run the statistical test?</li>
