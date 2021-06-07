@@ -32,3 +32,23 @@ Using Figure 1.1, the output from summarizing a linear regression comparing the 
 In looking at the Total Summary Table (Figure 2.1), the design specifications of a variance within 100 PSI are being met as the variance is 62.29 PSI.  However when drilling down into a Lot by Lot comparison (Figure 2.2), it appears that only Lots 1 & 2 are meeting the variance dictated in the design specifications with variances of .98 and 7.5 PSI respectively.  Lot 3 has a variance of 170.3 PSI which does not meet the criteria and brings up the overall Variance in the Total Summary significantly.  Lot 3 should be evaluated further to understand this unacceptable amount of variance.
 </p>
 
+<h2>T-Tests on Suspension Coils</h2>
+
+<h3>Summary</h3>
+
+<p align='center'>
+<img src='https://github.com/tc9993/MechaCar-Statistical-Analysis/blob/main/Resources/total_ttest.PNG?raw=true' alt='All Lots T-Test'><br>
+<b>Figure 3.1: </b>All Lots T-Test
+</p>
+<p align='center'>
+<img src='https://github.com/tc9993/MechaCar-Statistical-Analysis/blob/main/Resources/lot1_ttest.PNG?raw=true' alt='Lot 1 T-Test'><br>
+<b>Figure 3.2: </b>Lot 1 T-Test
+</p>
+<p align='center'>
+<img src='https://github.com/tc9993/MechaCar-Statistical-Analysis/blob/main/Resources/lot2_ttest.PNG?raw=true' alt='Lot 2 T-Test'><br>
+<b>Figure 3.3: </b>Lot 2 T-Test
+</p>
+<p align='center'>
+<img src='https://github.com/tc9993/MechaCar-Statistical-Analysis/blob/main/Resources/lot3_ttest.PNG?raw=true' alt='Lot 3 T-Test'><br>
+<b>Figure 3.4: </b>Lot 3 T-Test
+</p>
