@@ -62,17 +62,25 @@ In looking at the Total Summary Table (Figure 2.1), the design specifications of
 <h2>Study Design: MechaCar vs Competition</h2>
 
 <h3>Summary</h3>
-<ul>
+<ol>
 <li>What metric or metrics are you going to test?
   <ul>
-  <li>Cost</li>
+  <li>Price/Listed Price</li>
   <li>MPG</li>
   <li>Safety Rating</li>
   <li>Auto/Manual Transmission</li>
   <li>Fuel Type (Electric, Gasoline, etc.)</li>
+  <li>Horsepower</li>
+  <li>Car Type (SUV, Sedan, Etc.)</li>
   </ul>
 </li>
 <li>What is the null hypothesis or alternative hypothesis?</li>
+  <ul>
+  <li>Null Hypothesis: Cost of MechaCar is reflective of ratings across metrics tested.</li>
+  <li>Alternate Hypothesis: Cost of Mecha car is not reflective of ratings across metrics tested.</li>
+  </ul>
 <li>What statistical test would you use to test the hypothesis? And why?</li>
+  <ul><li>A multiple linear regression would be best for this type of evaluation.  Cost would be the dependent variable while the remaining metrics would serve as independent variables in the analysis.  The analysis test would be able to tell which metrics are the best indicators of price.</li></ul>
 <li>What data is needed to run the statistical test?</li>
-</ul>
+  <ul><li>A list of car models across manufacturers, including MechaCar, and their performace in the data categories laid out in item 1 would be required to perform to multiple linear regression and determine whether each category likely has an affect on price/listed price.</li></ul>
+</ol>
