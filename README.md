@@ -29,6 +29,6 @@ Using Figure 1.1, the output from summarizing a linear regression comparing the 
 <b>Figure 2.2:</b> Lot Summary Table
 </p>
 <p>
-In looking at the Total Summary Table (Figure 2.1), the design specifications of a variance within 100 PSI are being met as the variance is 62.29 PSI.  However when drilling down into a Lot by Lot comparison (Figure 2.2), it appears that only Lots 1 & 2 are meeting the variance dictated in the design specifications with variances of .98 and 7.5 PSI respectively.  Lot 3 has a variance of 170.3 PSI which does not meet the criteria and brings up the overall Variance in the Total Summary significantly.  Lot 3 should be evaluated further to understand this unacceptable variance.
+In looking at the Total Summary Table (Figure 2.1), the design specifications of a variance within 100 PSI are being met as the variance is 62.29 PSI.  However when drilling down into a Lot by Lot comparison (Figure 2.2), it appears that only Lots 1 & 2 are meeting the variance dictated in the design specifications with variances of .98 and 7.5 PSI respectively.  Lot 3 has a variance of 170.3 PSI which does not meet the criteria and brings up the overall Variance in the Total Summary significantly.  Lot 3 should be evaluated further to understand this unacceptable amount of variance.
 </p>
 
